@@ -1,0 +1,87 @@
+package testngprograms;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class OrangeHRM1 {
+	
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	@Parameters("browser")
+	@BeforeClass
+	public void openBrowser(String browserType) {
+		
+		if(browserType.equalsIgnoreCase("chrome")){
+			System.out.println("Opening chrome browser...");
+			System.setProperty("webdriver.chrome.driver", "/Selenium softwares/chromedriver_win32/chromedriver.exe");
+			driver = new ChromeDriver();
+		}else if(browserType.equalsIgnoreCase("firefox")){
+			System.out.println("Opening FF browser...");
+			System.setProperty("webdriver.gecko.driver","/Selenium softwares/geckodriver-v0.24.0-win64/geckodriver.exe");
+			driver = new FirefoxDriver();
+		}else if(browserType.equalsIgnoreCase("ie")){
+			System.out.println("Opening IE browser...");
+			System.setProperty("webdriver.ie.driver", "/Selenium softwares/IEDriverServer_x64_3.14.0/IEDriverServer.exe");
+			driver = new InternetExplorerDriver();
+		}
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		wait = new WebDriverWait(driver, 20);
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+	}
+//	@AfterMethod
+//	public void backToHomePage() {
+//		driver.findElement(By.xpath("//a[text()='Home']")).click();
+	
+	@Parameters({"username","password"})
+	@Test(priority=1)
+	public void verifyLoginPage(String uname, String pwd) throws Exception {
+		
+		driver.findElement(By.id("txtUsername")).sendKeys(uname);
+		driver.findElement(By.id("txtPassword")).sendKeys(pwd);
+		driver.findElement(By.name("Submit")).click();
+		Thread.sleep(2000);
+	}
+	@Test(priority=2)
+	public void ValidateCredentials() {
+		System.out.println("Verifying login page...");
+		String expected="OrangeHRM";
+		
+		String actual = "";
+		 actual = driver.getTitle();
+		
+		
+		
+		Assert.assertEquals(actual, expected);				
+	}
+	@Test(priority=3,dependsOnMethods="ValidateCredentials")
+	public void Logout() throws Exception {
+		Thread.sleep(2000);
+		System.out.println("Verifying login page...");
+		driver.findElement(By.linkText("Welcome Admin")).click();
+		driver.findElement(By.linkText("Logout")).click();
+	}
+	@AfterClass
+	public void closeBrowser() {
+		System.out.println("Closing the browser");
+		driver.close();
+	}
+}

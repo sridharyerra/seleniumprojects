@@ -1,0 +1,151 @@
+package extentreports;
+
+import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+public class ExtentReportDemo {
+	
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	public ExtentReports reports;
+	public ExtentTest test;
+	
+	@BeforeClass
+	public void openBrowser() {
+		
+		String filePath = "/seleniumproject/SeleniummorningautomationExtentReports/Extentreport-"+Calendar.getInstance().getTime().toString().replace(":", "-")+".html";
+		reports = new ExtentReports(filePath, true);
+		
+		System.out.println("Opening chrome browser...");
+		System.setProperty("webdriver.chrome.driver", "/Selenium softwares/chromedriver_win32/chromedriver.exe");
+		driver = new ChromeDriver();	
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		wait = new WebDriverWait(driver, 20);
+		
+		driver.get("http://newtours.demoaut.com/");
+	}
+	@AfterMethod
+	public void backToHomePage() {
+		driver.findElement(By.xpath("//a[text()='Home']")).click();
+	}
+	
+	@Test(priority=1)
+	public void verifySignOnPage() {
+		test = reports.startTest("Verify SignOn Page");
+		System.out.println("Verifying Sign on page...");
+		driver.findElement(By.xpath("//a[text()='SIGN-ON']")).click();
+		
+		boolean expected = true;
+		boolean actual = false;
+		
+		actual=driver.findElement(By.xpath("//input[@name='userName']")).isDisplayed();
+		
+		Assert.assertEquals(actual, expected);
+		
+		if(actual==expected)
+			test.log(LogStatus.PASS, "matched");
+		else
+			test.log(LogStatus.FAIL, "matched");
+		
+		reports.endTest(test);
+		
+	}
+	@Test(priority=2)
+	public void verifyRegisterPage() throws InterruptedException {
+		test = reports.startTest("Verify Register Page");
+		
+		System.out.println("Verifying Register page...");
+		driver.findElement(By.xpath("//a[text()='REGISTER']")).click();
+		
+		String actual = "";
+		String expected = "Register: Mercury Tours";
+		
+		//wait.until(ExpectedConditions.urlContains("mercuryregister"));
+		Thread.sleep(3000);
+		
+		actual = driver.getTitle();
+		
+		Assert.assertEquals(actual, expected);	
+		
+		if(actual.equals(expected))
+			test.log(LogStatus.PASS, "matched");
+		else
+			test.log(LogStatus.FAIL, "matched");
+		
+		reports.endTest(test);
+	}
+	
+	@Test(priority=3)
+	public void verifySupportPage() throws InterruptedException {
+		test = reports.startTest("Verify Support Page");
+		
+		System.out.println("Verifying Support page...");
+		driver.findElement(By.xpath("//a[text()='SUPPORT']")).click();
+		
+		String actual = "";
+		String expected = "Support: Mercury Tours";
+		
+		//wait.until(ExpectedConditions.urlContains("mercurysupport"));
+		Thread.sleep(3000);
+		
+		actual = driver.getTitle();
+		
+		Assert.assertEquals(actual, expected);
+		
+		if(actual.equals(expected))
+			test.log(LogStatus.PASS, "matched");
+		else
+			test.log(LogStatus.FAIL, "matched");
+		
+		reports.endTest(test);
+	}
+	@Test(priority=4)
+	public void verifyContactPage() throws InterruptedException {
+		test = reports.startTest("Verify Contact Page");
+		System.out.println("Verifying Contact page...");
+		driver.findElement(By.xpath("//a[text()='CONTACT']")).click();
+		
+		String actual = "";
+		String expected = "Contact: Mercury Tours";
+		
+		//wait.until(ExpectedConditions.urlContains("mercurysupport"));
+		Thread.sleep(3000);
+		
+		actual = driver.getTitle();
+		
+		Assert.assertEquals(actual, expected);
+		
+		if(actual.equals(expected))
+			test.log(LogStatus.PASS, "matched");
+		else
+			test.log(LogStatus.FAIL, "matched");
+		
+		reports.endTest(test);
+		
+	}
+	@AfterClass
+	public void closeBrowser() {
+		reports.flush();
+		reports.close();
+		System.out.println("Closing the browser");
+		driver.close();
+	}
+}

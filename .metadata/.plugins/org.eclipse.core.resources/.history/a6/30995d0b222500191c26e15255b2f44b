@@ -1,0 +1,18 @@
+package JavaMethods;
+
+public class methodreturnvalue {
+
+	public static void main(String[] args, Object system) {
+		// TODO Auto-generated method stub
+    sum(200, 300);
+    
+	
+	}
+	
+  public static void sum(int x, int y){
+	  int res;
+	  res=x+y;
+	  System.out.println(res);
+	  
+  }
+}

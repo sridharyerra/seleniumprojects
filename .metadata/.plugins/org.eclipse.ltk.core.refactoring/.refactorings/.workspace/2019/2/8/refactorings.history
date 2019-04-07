@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Copy 0 elements to &apos;Seleniumpractice/src/pack1&apos;&#x0D;&#x0A;- Destination element: &apos;Seleniumpractice/src/pack1&apos;" description="Copy compilation units" destination="=Seleniumpractice/src&lt;pack1" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1550501153847" units="0" version="1.0"/>&#x0A;<refactoring comment="Delete resource &apos;mavensampleproject&apos;" deleteContents="false" description="Delete resource &apos;mavensampleproject&apos;" element1="/mavensampleproject" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1550507166351"/>
+</session>

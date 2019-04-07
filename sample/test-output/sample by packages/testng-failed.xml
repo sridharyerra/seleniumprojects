@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [sample by packages]">
+  <test thread-count="5" name="qa.sampleproject.testngtests(failed)">
+    <classes>
+      <class name="qa.sampleproject.testngtests.dependsonTest">
+        <methods>
+          <include name="depends"/>
+          <include name="login"/>
+        </methods>
+      </class> <!-- qa.sampleproject.testngtests.dependsonTest -->
+      <class name="qa.sampleproject.testngtests.assertTest">
+        <methods>
+          <include name="yahooTitleTest"/>
+        </methods>
+      </class> <!-- qa.sampleproject.testngtests.assertTest -->
+      <class name="qa.sampleproject.testngtests.retryTest">
+        <methods>
+          <include name="test1"/>
+        </methods>
+      </class> <!-- qa.sampleproject.testngtests.retryTest -->
+      <class name="qa.sampleproject.testngtests.parameterTest">
+        <methods>
+          <include name="yahooTitleTest"/>
+        </methods>
+      </class> <!-- qa.sampleproject.testngtests.parameterTest -->
+    </classes>
+  </test> <!-- qa.sampleproject.testngtests(failed) -->
+</suite> <!-- Failed suite [sample by packages] -->

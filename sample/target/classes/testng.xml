@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testing-1.0.dtd">
+ <suite name="Testng Pratcie test suite" >
+  <test name="Google test">
+ 	<classes>
+ 		<class name="qa.sampleproject.tests.SampleTest" />
+ 		<class name="qa.sampleproject.tests.YahooPageTest" />         
+	 </classes>
+  </test> 
+ </suite> 
+

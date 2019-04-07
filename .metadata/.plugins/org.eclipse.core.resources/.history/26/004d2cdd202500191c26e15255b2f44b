@@ -1,0 +1,15 @@
+package JavaMethods;
+
+public class methodreturnvalue {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+    sum(200, 500);
+	}
+  public static int sum(int x, int y){
+	  int res=0;
+	  res=x+y;
+	  return res;
+	  
+  }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="sample"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS">
+<mapEntry key="qa.sampleproject.testngtests.assertTest" value="yahoologotest;yahooTitleTest"/>
+<mapEntry key="qa.sampleproject.testngtests.base" value="failed;initilization"/>
+<mapEntry key="qa.sampleproject.testngtests.customlistner" value="onTestFailure;onTestSkipped;onStart;onFinish;onTestStart;onTestSuccess;onTestFailedButWithinSuccessPercentage"/>
+<mapEntry key="qa.sampleproject.testngtests.dependsonTest" value="depends;login"/>
+<mapEntry key="qa.sampleproject.testngtests.expectedExcepiton" value="sum"/>
+<mapEntry key="qa.sampleproject.testngtests.invocationCount" value="sum"/>
+<mapEntry key="qa.sampleproject.testngtests.parameterTest" value="yahooTitleTest"/>
+<mapEntry key="qa.sampleproject.testngtests.retryTest" value="test2;test1"/>
+<mapEntry key="qa.sampleproject.testngtests.screenshottest" value="setup;takescreenshot;takescreenshot1;teardown"/>
+</mapAttribute>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+<listEntry value="qa.sampleproject.testngtests.dependsonTest"/>
+<listEntry value="qa.sampleproject.testngtests.screenshottest"/>
+<listEntry value="qa.sampleproject.testngtests.customlistner"/>
+<listEntry value="qa.sampleproject.testngtests.parameterTest"/>
+<listEntry value="qa.sampleproject.testngtests.invocationCount"/>
+<listEntry value="qa.sampleproject.testngtests.expectedExcepiton"/>
+<listEntry value="qa.sampleproject.testngtests.retryTest"/>
+<listEntry value="qa.sampleproject.testngtests.base"/>
+<listEntry value="qa.sampleproject.testngtests.assertTest"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+<intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

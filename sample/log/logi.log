@@ -1,0 +1,12 @@
+[main] INFO TestBase.class - BROWSER
+[main] WARN TestBase.class - WARNING
+[main] FATAL TestBase.class - Fatal erro
+[main] ERROR TestBase.class - Error
+[main] INFO TestBase.class - BROWSER
+[main] WARN TestBase.class - WARNING
+[main] FATAL TestBase.class - Fatal erro
+[main] ERROR TestBase.class - Error
+[TestNG-test=Test-1] INFO TestBase.class - BROWSER
+[TestNG-test=Test-1] WARN TestBase.class - WARNING
+[TestNG-test=Test-1] FATAL TestBase.class - Fatal erro
+[TestNG-test=Test-1] ERROR TestBase.class - Error

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 3 elements to &apos;sample/src/test/java/qa.sampleproject.testngtests&apos;&#x0D;&#x0A;- Original project: &apos;Seleniumpractice&apos;&#x0D;&#x0A;- Destination element: &apos;sample/src/test/java/qa.sampleproject.testngtests&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     testnglisterscreenshot.customlistner.java&#x0D;&#x0A;     testnglisterscreenshot.screenshottest.java&#x0D;&#x0A;     testnglisterscreenshot.base.java" description="Copy compilation units" destination="=sample/src\/test\/java&lt;qa.sampleproject.testngtests" element1="/src&lt;testnglisterscreenshot{customlistner.java" element2="/src&lt;testnglisterscreenshot{screenshottest.java" element3="/src&lt;testnglisterscreenshot{base.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1551172109679" units="3" version="1.0"/>
+</session>

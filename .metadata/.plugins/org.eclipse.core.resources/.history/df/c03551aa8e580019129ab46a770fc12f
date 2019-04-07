@@ -1,0 +1,22 @@
+package selectprogpackage;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class StateformSelectDemo {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "/Selenium softwares/chromedriver_win32/chromedriver.exe");
+        ChromeDriver driver= new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://www.statefarm.com/");
+        driver.findElement(By.xpath("//*[@id='tab4']")).click();
+		driver.findElement(By.id("quote-main-zip-code-input")).sendKeys("73085");
+		driver.findElement(By.id("agent-find-agent-button")).click();
+	}
+
+}

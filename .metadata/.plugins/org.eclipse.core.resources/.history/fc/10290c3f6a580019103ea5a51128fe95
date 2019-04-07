@@ -1,0 +1,50 @@
+package testngprograms;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class OrangeHRMDependsOn {
+	
+	public WebDriver driver;
+	public WebDriverWait wait;
+	
+	@BeforeClass
+	public void openBrowser() {
+		System.out.println("Opening chrome browser...");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\drivers\\chromedriver.exe");
+		driver = new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		wait = new WebDriverWait(driver, 20);
+		
+		driver.get("https://opensource-demo.orangehrmlive.com/");
+	}
+	
+	@Test(priority=1)
+	public void doLogin() {
+		System.out.println("Login...");
+		
+	}
+	@Test(priority=2, dependsOnMethods="doLogin")
+	public void addEmployee() {
+		System.out.println("Adding employee...");
+		
+	}
+	@Test(priority=3, dependsOnMethods="doLogin")
+	public void doLogout() {
+		System.out.println("logging out...");
+		
+	}
+	@AfterClass
+	public void closeBrowser() {
+		driver.close();
+	}
+}
